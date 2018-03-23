@@ -1,0 +1,49 @@
+extends template
+
+block title
+	title Sign Up
+
+block content
+	.container(style='margin-top:40px')
+		.row
+			.col-sm-6.col-md-4.col-md-offset-4
+				.panel.panel-default
+					if hasErrors
+						div.alert.alert-danger.text-center
+							a(href='#' data-dismiss='alert' area-label='close').close &times;
+							each msg in messages
+								p= msg
+					.panel-heading
+						strong  Sign Up
+					.panel-body
+						form(role='form', action='/signup', method='POST')
+							fieldset
+								.row
+									.col-sm-12.col-md-10.col-md-offset-1
+										h3
+											div
+												a(href='#').btn-social.btn-facebook.text-center
+													i.fa.fa-facebook Sign Up with Facebook
+											div
+												a(href='#').btn-social.btn-google.text-center
+													i.fa.fa-google Sign Up with Google
+										.form-group
+											.input-group
+												span.input-group-addon
+													i.glyphicon.glyphicon-user
+												input.form-control(placeholder='Username', name='username', type='text', autofocus='')
+										.form-group
+											.input-group
+												span.input-group-addon
+													i.glyphicon.glyphicon-envelope
+												input.form-control(placeholder='Email', name='email', type='email', autofocus='')
+										.form-group
+											.input-group
+												span.input-group-addon
+													i.glyphicon.glyphicon-lock
+												input.form-control(placeholder='Password', name='password', type='password', value='')
+										.form-group
+											input.btn.btn-lg.btn-primary.btn-block(type='submit', value='Sign Up')
+					.panel-footer
+						| Do have an account!
+						a(href='#', onclick='')  Sign In Here
