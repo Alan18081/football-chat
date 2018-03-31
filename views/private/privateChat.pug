@@ -1,0 +1,61 @@
+extends ../template
+
+block content
+	.row
+		.col-md-3
+			.panel.panel-info
+				.panel-body
+					img.img-responsive.img-circle(src=user.userImage)
+					h2#username= user.username
+					p
+						i.fa.fa-circle
+						span Online
+					a(href='#') View my profile
+			.panel.panel-info
+				.panel-heading Online friends
+				.panel-body
+					div.list-group#onlineFriends
+						span#onlineLength
+						each friend in user.friends
+							strong.friend(hidden='true') @#{friend.friendName}
+		.col-md-9
+			.panel.panel-info
+				.panel-heading#receiver-name
+				.panel-body
+					ul.messages
+						each mess in messages
+							li.message
+								img.img-circle(src='http://placehold.it/30x30')
+								.message__body
+									h4.message__name= mess.senderName
+									p.message__text= mess.message
+					script(id='message-template' type='text/template')
+						<li class="message">
+						<img class="img-circle" src='http://placehold.it/30x30'/>
+						<div class="message__body">
+						<h4 class="message__name">{{sender}}</h4>
+						<p class="message__text">{{text}}</p>
+						</div>
+						</li>
+					input(type='hidden' id='groupName' value=groupName)
+					input(type='hidden' id='sender' value=user.username)
+					textarea#message-input.form-control(placeholder='Type a message')
+					button.btn.btn-primary#message_send Send
+	.modal.fade#friendModal(tabindex='-1', role='dialog')
+		.modal-dialog(role='document')
+			.modal-content
+				.modal-header
+					button.close(type='button', data-dismiss='modal', aria-label='Close')
+						span(aria-hidden='true') ×
+					h4#modal-name
+				.modal-footer
+					a.btn.btn-success#viewProfile View profile
+					button.btn.btn-primary(type='button')#addFriend
+						i.fa.fa-user
+						| Add friend
+block scripts
+	script(src='/socket.io/socket.io.js')
+	script(src='/js/private/pm.js')
+	script(src='/js/global.js')
+	script(src='/js/deparam.js')
+	script(src='https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js')

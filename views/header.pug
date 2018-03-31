@@ -1,15 +1,81 @@
+if newMessages
+	-var unreadMessagesLength = 0;
+	-var i = 0;
+	while i < newMessages.length
+		if newMessages[i]
+			- unreadMessagesLength++;
+		-i++
+
 nav.navbar.navbar-default
-	.container-fluid
+	input(type='hidden' id='username' value=user && user.username)
+	input(type='hidden' id='userImage' value=user && user.userImage)
+	.container
 		.navbar-header
 			button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
 				span.sr-only Toggle navigation
 				span.icon-bar
 				span.icon-bar
 				span.icon-bar
-			a.navbar-brand(href='#') Brand
+			a.navbar-brand(href='/home') Socket Chat
 		#bs-example-navbar-collapse-1.collapse.navbar-collapse
 			ul.nav.navbar-nav.navbar-right
-				li
-					a(href='/login') Login
-				li
-					a(href='/signup') Sign Up
+				if user
+					li
+						.dropdown.notifications#reload
+							button.btn.btn-default.notifications__btn#dLabel(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+								i.fa.fa-bell
+								span.caret
+							if user.totalRequest > 0
+								div.bullet= user.totalRequest
+							div.dropdown-menu.friend-requests-menu(aria-labelledby='dLabel')
+								h4 Friend request
+								if user.totalRequest > 0
+									ul.list-group
+										each req in user.request
+											li.list-group-item
+												.row
+													.col-md-4
+														img(src='http://placehold.it/30x30').img-circle
+													.col-md-8
+														strong= req.username
+												.row
+													input.senderId(type='hidden' value=req.userId._id)
+													input.senderName(type='hidden' value=req.username)
+													button.btn.btn-success.accept Accept
+													button.btn.btn-default.reject Reject
+								else
+									p.text-center No friends requests
+						li
+							.dropdown.notifications#messages_popup
+								button.btn.btn-default.notifications__btn#dLabel4(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+									i.fa.fa-envelope
+									span.caret
+								if unreadMessagesLength > 0
+									div.bullet= unreadMessagesLength
+								div.dropdown-menu.friend-requests-menu(aria-labelledby='dLabel4')
+									h4 Notifications
+									if newMessages
+										ul.list-group#new-messages
+											each message in newMessages
+												li.list-group-item
+													.row
+														.col-md-3
+															img(src='http://placehold.it/30x30').img-circle
+														.col-md-9
+															a.messageLink(data-value=message._id href=`/chat/${message.receiverName}.${message.senderName}`)
+																strong= message.senderName
+															p= message.message
+									else
+										p.text-center No new messages
+						li
+							.dropdown.notifications
+								button.btn.btn-default.notifications__btn#dLabel2(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+									span= user.username
+									span.caret
+								div.dropdown-menu.friend-requests-menu(aria-labelledby='dLabel2')
+									a(href='/logout' style='color: #181716') Logout
+				else
+					li
+						a(href='/login') Login
+					li
+						a(href='/signup') Sign Up

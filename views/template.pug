@@ -6,10 +6,15 @@ html(lang="en")
 		meta(http-equiv="X-UA-Compatible" content="ie=edge")
 		link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet')
 		link#bootstrap-css(href='//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' rel='stylesheet')
-		block title
+		link(href='/css/style.css' rel='stylesheet')
+		title= title
 	body
 		include header
-		block content
+		.container
+			block content
 		script(src='http://code.jquery.com/jquery-1.11.1.min.js')
 		script(src='http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
-		script(src='js/main.js')
+		script(src='/js/deparam.js')
+		block scripts
+		script(src='/js/main.js')
+		script(src='/js/messageLink.js')

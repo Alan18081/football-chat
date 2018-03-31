@@ -1,7 +1,7 @@
 const passport = require('passport');
 const User = require('../models/User');
 const config = require('../secret/secretfile');
-const FacebookStrategy = require('passport-facebook').Strategy;
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 passport.serializeUser((user,done) => {
   done(null,user.id);
@@ -18,27 +18,27 @@ passport.deserializeUser(async (id,done) => {
   }
 });
 
-passport.use('facebook',new FacebookStrategy({
-  clientID: config.facebook.clientID,
-  clientSecret: config.facebook.clientSecret,
-  profileFields: ['email','displayName','photos'],
-  callbackURL: 'http://localhost:3000/auth/facebook/callback',
+passport.use('google',new GoogleStrategy({
+  clientID: config.google.clientID,
+  clientSecret: config.google.clientSecret,
+  callbackURL: 'http://localhost:3000/auth/google/callback',
   passReqToCallback: true
-},async (req,token,refreshToken,profile,done) => {
+},async (req,accessToken,refreshToken,profile,done) => {
   try {
-    const user = await User.findOne({facebook: profile.id});
+    const user = await User.findOne({google: profile.id});
     if(user) {
+      console.log(user);
       return done(null,user);
     }
     else {
       const newUser = new User({
-        facebook: profile.id,
-        fullname: profile.displayName,
         username: profile.displayName,
-        email: profile._json.email,
-        userImage: `http://graph.facebook.com/${profile.id}/picture?type=large`,
-        fbTokens: this.fbTokens.push({token})
+        google: profile.id,
+        fullname: profile.displayName,
+        email: profile.emails[0].value,
+        userImage: profile._json.image.url
       });
+      newUser.fbTokens.push({accessToken});
       await newUser.save();
       return done(null,newUser);
     }

@@ -1,0 +1,109 @@
+.panels {
+    margin-top: 30px;
+}
+
+.navbar {
+    background-color: mediumpurple;
+}
+
+.navbar .container a, .navbar .navbar-nav > li > a {
+    color: #ffffff;
+}
+
+.group-btns {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.messages {
+    min-height: 60vh;
+    padding: 0;
+}
+
+.online-fans {
+    height: 86vh;
+}
+
+.message {
+    display: flex;
+    align-items: flex-start;
+}
+
+.message__body {
+    margin-left: 10px;
+}
+
+.message__name {
+    margin-top: 0;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.message__text {
+    font-size: 16px;
+}
+
+.user-link {
+    cursor: pointer;
+}
+
+.notifications {
+    vertical-align: middle;
+}
+
+.notifications__btn {
+    background: none;
+    border: none;
+    color: #ffffff;
+    display: inline-block;
+}
+
+.notifications__btn:hover, .notifications__btn:focus, .notifications__btn:active {
+    background: none;
+    border: none;
+    color: #ccc;
+    transition: all .5s ease;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.friend-requests-menu {
+    width: 300px;
+}
+
+.friend-req-btn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.bullet {
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkred;
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 0;
+    right: 0;
+    font-size: 11px;
+}
+
+#onlineLength {
+    margin-left: 5px;
+}
+
+ul {
+    list-style: none;
+}
+
+.messageLink {
+    display: block;
+    color: #181617!important;
+}

@@ -1,0 +1,9 @@
+extends ../template
+
+block content
+	form(action='/dashboard' method='POST' id='dashboardForm')
+		input(type='text' name='club' placeholder='Club name')
+		input(type='text' name='country' placeholder='Country')
+		button.btn.btn-large.upload-btn(type='button') Upload file
+		input(type='file' name='upload' id='upload-input' style='display: none;')
+		button.btn.btn-primary Add group

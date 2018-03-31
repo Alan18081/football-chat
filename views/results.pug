@@ -4,13 +4,13 @@ block content
 	.container
 		.row
 			.col-md-12
-				form(action='/results' method='POST').input-group
+				form(method='POST' action='/results').input-group
 					input(placeholder='Club' name='country').form-control
 					.input-group-btn
 						button.btn.btn-secondary Search
 		.row
 			.col-md-4
-				form(action='/results' method='POST')
+				form(method='POST' action='/results')
 					h2 Filter
 					select.form-control(name='country' id='country')
 						each country in countries

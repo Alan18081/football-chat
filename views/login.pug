@@ -1,8 +1,5 @@
 extends template
 
-block title
-	title Sign Up
-
 block content
 	.container(style='margin-top:40px')
 		.row
@@ -20,6 +17,13 @@ block content
 							fieldset
 								.row
 									.col-sm-12.col-md-10.col-md-offset-1
+										h3
+											div
+												a(href='/auth/facebook').btn-social.btn-facebook.text-center
+													i.fa.fa-facebook Login with Facebook
+											div
+												a(href='/auth/google').btn-social.btn-google.text-center
+													i.fa.fa-google Login with Google
 										.form-group
 											.input-group
 												span.input-group-addon
