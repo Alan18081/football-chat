@@ -5,7 +5,8 @@ module.exports = {
   },
   google: {
     clientID: '813216506346-a8fi6r04gn3bu6d0eoeguufd9ir4vj8i.apps.googleusercontent.com',
-    clientSecret: 'hhXWuIK681bmekrIv-ygMw2r'
+    clientSecret: 'hhXWuIK681bmekrIv-ygMw2r',
+    callbackURL: 'http://localhost:3000/auth/google/callback'
   },
   mongodb: 'mongodb://AlexMorgan:morgan11@ds121289.mlab.com:21289/socket'
 };

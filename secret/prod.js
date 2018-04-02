@@ -5,7 +5,8 @@ module.exports = {
   },
   google: {
     clientID: process.env.GOOGLE_CLIENT_ID,
-    clientSecret: process.env.GOOGLE_CLIENT_SECRET
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: process.env.CALLBACK_URL
   },
   mongodb: process.env.MONGODB_URL
 };
