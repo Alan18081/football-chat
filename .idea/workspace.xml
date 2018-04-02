@@ -5,28 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34b92bdd-540f-4a50-aca5-d31596d095b8" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/helpers/FriendRequest.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/uploads/29550332_1671618626266819_2002479595_n.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/uploads/Work  like hell.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/clubs.js" afterPath="$PROJECT_DIR$/controllers/clubs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/groups.js" afterPath="$PROJECT_DIR$/controllers/groups.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/results.js" afterPath="$PROJECT_DIR$/controllers/results.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/User.js" afterPath="$PROJECT_DIR$/models/User.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/passport/passport-facebook.js" afterPath="$PROJECT_DIR$/passport/passport-facebook.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/passport/passport-google.js" afterPath="$PROJECT_DIR$/passport/passport-google.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/style.css" afterPath="$PROJECT_DIR$/public/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/group/groupchat.js" afterPath="$PROJECT_DIR$/public/js/group/groupchat.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/group/sendRequest.js" afterPath="$PROJECT_DIR$/public/js/group/sendRequest.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/messageLink.js" afterPath="$PROJECT_DIR$/public/js/messageLink.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/groupchat/group.pug" afterPath="$PROJECT_DIR$/views/groupchat/group.pug" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/header.pug" afterPath="$PROJECT_DIR$/views/header.pug" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/home.pug" afterPath="$PROJECT_DIR$/views/home.pug" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/template.pug" afterPath="$PROJECT_DIR$/views/template.pug" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/uploads/default.png" afterPath="$PROJECT_DIR$/public/uploads/profile/default.png" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -67,11 +46,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
+            <state relative-caret-position="-55">
               <caret line="5" column="10" lean-forward="false" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Procfile" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Procfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -137,16 +126,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="passport-facebook.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/passport/passport-facebook.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1147">
-              <caret line="37" column="35" lean-forward="false" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
@@ -155,7 +134,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/js/main.js" />
         <option value="$PROJECT_DIR$/helpers/GlobalRoom.js" />
         <option value="$PROJECT_DIR$/controllers/users.js" />
         <option value="$PROJECT_DIR$/public/js/home.js" />
@@ -206,6 +184,7 @@
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/secret/prod.js" />
         <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/Procfile" />
       </list>
     </option>
   </component>
@@ -403,12 +382,12 @@
       <workItem from="1522240658768" duration="26355000" />
       <workItem from="1522497360515" duration="27733000" />
       <workItem from="1522564624565" duration="23749000" />
-      <workItem from="1522667708985" duration="1808000" />
+      <workItem from="1522667708985" duration="2338000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="219039000" />
+    <option name="totallyTimeSpent" value="219569000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="0" />
@@ -474,7 +453,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/socket/main.ejs" />
     <entry file="file://$PROJECT_DIR$/public/js/deparam.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="93">
@@ -836,8 +814,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
+        <state relative-caret-position="-55">
           <caret line="5" column="10" lean-forward="false" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Procfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
           <folding />
         </state>
       </provider>
