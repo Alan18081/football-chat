@@ -1,0 +1,25 @@
+extends template
+
+block content
+	.container
+		.row
+			.col-md-12
+				form(method='POST' action='/members').input-group
+					input(placeholder='Member' name='member').form-control
+					.input-group-btn
+						button.btn.btn-secondary Search
+		.row
+			.col-md-12
+				ul.panels
+					.row
+						each user in users
+							.col-md-3
+								a(href='/userProfile' style='text-decoration: none').panel.panel-info
+									.panel-body
+										img.img-responsive(src='http://placehold.it/500x500')
+										h4= user.username
+block scripts
+	script(src='/socket.io/socket.io.js')
+	script(src='/js/group/sendRequest.js')
+	script(src='/js/home.js')
+	script(src='/js/global.js')

@@ -101,9 +101,31 @@
 
 ul {
     list-style: none;
+    padding-left: 0;
 }
 
 .messageLink {
     display: block;
     color: #181617!important;
+}
+
+.nav-link {
+    color: #181716 !important;
+}
+
+.profile-link i {
+    margin-right: 10px;
+}
+
+#profile-img {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.fav-club-name {
+    margin-left: 10px;
+}
+
+.article {
+    display: none;
 }

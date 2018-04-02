@@ -5,6 +5,38 @@ module.exports = {
   setRouting(router) {
     router.get('/results',this.getResults);
     router.post('/results',this.postResults);
+    router.get('/members', this.getMembers);
+    router.post('/members', this.searchMembers);
+  },
+  async searchMembers(req,res) {
+    const regexp = new RegExp((req.body.member),'gi');
+    try {
+      const [users,user] = await Promise.all([
+        Users.find({$or: [{country: regexp},{username: regexp}]}),
+        Users.findOne({username: req.user.username})
+      ]);
+      res.render('members',{
+        title: 'Members',
+        user,
+        users
+      })
+    }
+    catch(error) {
+      console.log(error);
+    }
+  },
+  async getMembers(req,res) {
+    const [user,users] = await Promise.all([
+      Users.findOne({
+        username: req.user.username
+      }),
+      Users.find({})
+    ]);
+    res.render('members',{
+      title: 'Member',
+      user,
+      users
+    })
   },
   getResults(req,res) {
     res.redirect('/home');

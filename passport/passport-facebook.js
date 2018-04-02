@@ -36,7 +36,6 @@ passport.use('facebook',new FacebookStrategy({
         fullname: profile.displayName,
         username: profile.displayName,
         email: profile._json.email,
-        userImage: `http://graph.facebook.com/${profile.id}/picture?type=large`,
         fbTokens: this.fbTokens.push({token})
       });
       await newUser.save();

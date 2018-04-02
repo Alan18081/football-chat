@@ -1,0 +1,13 @@
+extends ../template
+
+block content
+	.row
+		.col-md-12
+			h1.text-center Latest news
+			ul#news-list
+			button.btn.btn-primary#loadMore Load more
+			a.btn-block(href='#')#top Back to top
+block scripts
+	script(src='/socket.io/socket.io.js')
+	script(src='/js/news.js')
+	script(src='/js/global.js')

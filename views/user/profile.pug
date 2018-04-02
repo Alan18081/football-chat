@@ -1,0 +1,53 @@
+extends ../template
+
+block content
+	.row
+		.col-md-4
+			.panel.text-center
+				img.img-responsive.img-circle#profile-img(src='/uploads/profile/' + user.userImage)
+				h4= user.username
+				h5= user.fullname
+			.panel
+				ul.nav.nav-pills.nav-stacked
+					li
+						a.profile-link(href='/profile/' + user.username)
+							i.fa.fa-home
+							| Overview
+					li.active
+						a.profile-link(href='/settings/profile')
+							i.fa.fa-user
+							| Profile
+					li
+						a.profile-link(href='/settings/interests')
+							i.fa.fa-check
+							| Interests
+		.col-md-8
+			h2 Personal information
+			span#error
+			form#profile-form
+				input.form-control(placeholder='Full name' name='fullname' value=user.fullname)
+				input.form-control(placeholder='Username' name='username' value=user.username)
+				input.form-control(placeholder='City, State, Country' name='country' value=user.country)
+				.gender
+					label Gender
+					.gender-item
+						input(type='radio' name='gender' value='male' checked=user.gender === 'male')
+						span.gender-caption Male
+					.gender-item
+						input(type='radio' name='gender' value='female' checked=user.gender === 'female')
+						span.gender-caption Female
+				.info
+					label Info
+					textarea.form-control(placeholder='One line sentence' name='mantra')= user.mantra
+				.club
+					label Club you support
+					select(name='club')
+						option(value='Club you support' disabled selected) Choose club
+				.avatar
+					label Add profile image
+					input(type='file' name='image' style='display: none;')#add-input
+					button.btn.btn-secondary.upload-btn Choose image
+				button.btn.btn-primary Save changes
+block scripts
+	script(src='/js/user/profile.js')
+

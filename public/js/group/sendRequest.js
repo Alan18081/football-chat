@@ -47,7 +47,7 @@ $(document).ready(() => {
     const senderId = $(btn).prevAll('.senderId').val();
     const senderName = $(btn).prevAll('.senderName').val();
     $.ajax({
-      url: `/groups/addFriend/${room}`,
+      url: `/acceptFriendReq`,
       type: 'POST',
       data: {
         senderId,
@@ -63,7 +63,7 @@ $(document).ready(() => {
     const btn = e.target;
     const senderId = $(btn).prevAll('.senderId').val();
     $.ajax({
-      url: `/groups/handleFriend/${room}`,
+      url: `/rejectFriendReq`,
       type: 'POST',
       data: {
         senderId
@@ -74,7 +74,7 @@ $(document).ready(() => {
   $('#addFriend').on('click',() => {
     const receiverName = $('#modal-name').text();
     $.ajax({
-      url: `/groups/${room}`,
+      url: `/sendFriendReq`,
       type: 'POST',
       data: {
         receiver: receiverName,

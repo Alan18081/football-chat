@@ -2,6 +2,7 @@ $(document).ready(() => {
   const socket = io();
   const room = $('#groupName').val();
   const sender = $('#sender').val();
+  const userImage = $('#userImage').val();
   socket.on('connect',() => {
     const params = {
       room,
@@ -11,10 +12,11 @@ $(document).ready(() => {
       console.log('User has joined this room');
     });
   });
-  socket.on('newMessage',({room,text,from}) => {
+  socket.on('newMessage',({room,text,from,image}) => {
     const template = $('#message-template').html();
     const message = Mustache.render(template,{
       text,
+      image,
       sender: from
     });
     $('.messages').append(message);

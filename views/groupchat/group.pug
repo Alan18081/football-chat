@@ -5,7 +5,7 @@ block content
 		.col-md-3
 			.panel.panel-info
 				.panel-body
-					img.img-responsive.img-circle(src=user.userImage)
+					img.img-responsive.img-circle(src='/uploads/profile/' + user.userImage)
 					h2#username= user.username || user.fullname
 					p
 						i.fa.fa-circle
@@ -27,13 +27,13 @@ block content
 					ul.messages
 						each message in groupMessages
 							li.message
-								img.img-circle(src='http://placehold.it/30x30')
+								img.img-circle(src='/uploads/profile/' + message.sender.userImage)
 								.message__body
 									h4.message__name= message.sender.username
 									p.message__text= message.text
 					script(id='message-template' type='text/template')
 						<li class="message">
-							<img class="img-circle" src='http://placehold.it/30x30'/>
+							<img class="img-circle" src='/uploads/profile/{{}}'/>
 							<div class="message__body">
 								<h4 class="message__name">{{sender}}</h4>
 								<p class="message__text">{{text}}</p>
@@ -63,8 +63,8 @@ block content
 						i.fa.fa-user
 						| Add friend
 block scripts
-	script(src='/socket.io/socket.io.js')
 	script(src='/js/group/groupchat.js')
+	script(src='/socket.io/socket.io.js')
 	script(src='/js/group/sendRequest.js')
 	script(src='/js/global.js')
 	script(src='https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js')

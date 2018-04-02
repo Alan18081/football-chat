@@ -1,0 +1,58 @@
+extends ../template
+
+block content
+	.row
+		.col-md-4
+			.panel.text-center
+				img.img-responsive.img-circle#profile-img(src='/uploads/profile/' + user.userImage)
+				h4= user.username
+				h5= user.fullname
+			.panel
+				ul.nav.nav-pills.nav-stacked
+					li
+						a.profile-link(href='/profile/' + user.username)
+							i.fa.fa-home
+							| Overview
+					li
+						a.profile-link(href='/settings/profile')
+							i.fa.fa-user
+							| Profile
+					li.active
+						a.profile-link(href='/settings/interests')
+							i.fa.fa-check
+							| Interests
+		.col-md-8
+			.panel
+				h2 Favorite clubs
+				#error
+				ul#favorite-clubs
+					each club in user.favClubs
+						i.fa.fa-check-circle
+						span.fav-club-name= club.name
+				.input-group
+					input.form-control(placeholder='Favorite club')#fav-club-input
+					.input-group-btn
+						button.btn.btn-primary#fav-club-btn Add club
+			.panel
+				h2 Favorite players
+				ul#favorite-players
+					each club in user.favPlayers
+						i.fa.fa-check-circle
+						span.fav-club-name= club.name
+				.input-group
+					input.form-control(placeholder='Favorite player')#fav-player-input
+					.input-group-btn
+						button.btn.btn-primary#fav-player-btn Add player
+			.panel
+				h2 Favorite national team
+				ul#favorite-team
+					each club in user.favNationalTeams
+						i.fa.fa-check-circle
+						span.fav-club-name= club.name
+				.input-group
+					input.form-control(placeholder='Favorite team')#fav-team-input
+					.input-group-btn
+						button.btn.btn-primary#fav-team-btn Add team
+block scripts
+	script(src='/js/user/interests.js')
+

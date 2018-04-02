@@ -35,10 +35,9 @@ passport.use('google',new GoogleStrategy({
         username: profile.displayName,
         google: profile.id,
         fullname: profile.displayName,
-        email: profile.emails[0].value,
-        userImage: profile._json.image.url
+        email: profile.emails[0].value
       });
-      newUser.fbTokens.push({accessToken});
+      newUser.google.push({accessToken});
       await newUser.save();
       return done(null,newUser);
     }

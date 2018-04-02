@@ -21,6 +21,10 @@ $(document).ready(() => {
     socket.on('messageDisplay', () => {
       $('#new-messages').load(`${location.href} #new-messages`);
     });
+
+    socket.on('newRefresh', () => {
+      $('#reload').load(`${location.href} #reload`);
+    })
   });
   $(document).on('click','.messageLink',e => {
     const chatId = $(e.target).data().value;

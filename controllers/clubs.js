@@ -23,13 +23,12 @@ module.exports = {
   uploadFile(req,res) {
     const newClub = new Club();
     const form = new formidable.IncomingForm();
-    form.uploadDir = path.join(__dirname,'../public/uploads');
+    form.uploadDir = path.join(__dirname,'../public/uploads/clubs');
     form.on('file',(field,file) => {
       fs.renameSync(file.path,path.join(form.uploadDir,file.name));
       newClub.image = file.name;
     });
     form.on('field',(name,value) => {
-      console.log('Field');
       newClub[name] = value;
     });
 

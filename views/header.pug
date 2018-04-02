@@ -2,7 +2,7 @@ if newMessages
 	-var unreadMessagesLength = 0;
 	-var i = 0;
 	while i < newMessages.length
-		if newMessages[i]
+		if !newMessages[i].isRead && newMessages[i].senderName !== user.username
 			- unreadMessagesLength++;
 		-i++
 
@@ -20,6 +20,8 @@ nav.navbar.navbar-default
 		#bs-example-navbar-collapse-1.collapse.navbar-collapse
 			ul.nav.navbar-nav.navbar-right
 				if user
+					li
+						a(href='/news') News
 					li
 						.dropdown.notifications#reload
 							button.btn.btn-default.notifications__btn#dLabel(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
@@ -57,23 +59,34 @@ nav.navbar.navbar-default
 									if newMessages
 										ul.list-group#new-messages
 											each message in newMessages
-												li.list-group-item
-													.row
-														.col-md-3
-															img(src='http://placehold.it/30x30').img-circle
-														.col-md-9
-															a.messageLink(data-value=message._id href=`/chat/${message.receiverName}.${message.senderName}`)
-																strong= message.senderName
-															p= message.message
+												if message.senderName !== user.username
+													li.list-group-item
+														.row
+															.col-md-3
+																img(src='http://placehold.it/30x30').img-circle
+															.col-md-9
+																a.messageLink(data-value=message._id href=`/chat/${message.receiverName}.${message.senderName}`)
+																	strong= message.senderName
+																p= message.message
 									else
 										p.text-center No new messages
+						li
+							a(href='/members') Members
 						li
 							.dropdown.notifications
 								button.btn.btn-default.notifications__btn#dLabel2(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
 									span= user.username
 									span.caret
 								div.dropdown-menu.friend-requests-menu(aria-labelledby='dLabel2')
-									a(href='/logout' style='color: #181716') Logout
+									ul.list-group
+										li.list-group-item
+											a.nav-link(href='/settings/profile')
+												i.fa.fa-user
+												|	Profile
+										li.list-group-item
+											a.nav-link(href='/logout')
+												i.fa.fa-sign-out
+												|	Logout
 				else
 					li
 						a(href='/login') Login

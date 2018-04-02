@@ -3,6 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const http = require('http');
+const config = require('./secret/secretfile');
 const router = require('express-promise-router')();
 const cookieParser = require('cookie-parser');
 const validator = require('express-validator');
@@ -12,9 +13,11 @@ const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const passport = require('passport');
 const socketIO = require('socket.io');
+const compression = require('compression');
+const helmet = require('helmet');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://AlexMorgan:morgan11@ds121289.mlab.com:21289/socket');
+mongoose.connect(config.mongodb);
 
 // Mongoose schemas
 
@@ -23,6 +26,8 @@ const server = http.createServer(app);
 app.use(express.static(path.join(__dirname,'public')));
 app.use(cookieParser());
 app.use(validator());
+app.use(compression());
+app.use(helmet());
 app.use(session({
   secret: 'the secret key',
   resave: true,
@@ -51,6 +56,10 @@ const home = require('./controllers/home');
 const groups = require('./controllers/groups');
 const results = require('./controllers/results');
 const privateChat = require('./controllers/privateChat');
+const profile = require('./controllers/profile');
+const interests = require('./controllers/interests');
+const news = require('./controllers/news');
+const friends = require('./controllers/friends');
 
 users.setRouting(router);
 clubs.setRouting(router);
@@ -58,6 +67,10 @@ home.setRouting(router);
 groups.setRouting(router);
 results.setRouting(router);
 privateChat.setRouting(router);
+profile.setRouting(router);
+interests.setRouting(router);
+news.setRouting(router);
+friends.setRouting(router);
 
 const io = socketIO(server);
 require('./socket/groupchat')(io);

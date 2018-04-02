@@ -1,0 +1,47 @@
+extends ../template
+
+block content
+	.row
+		.col-md-4
+			.panel.text-center
+				img.img-responsive.img-circle#profile-img(src='/uploads/profile/' + data.userImage)
+				h4= data.username
+				h5= data.fullname
+			if	data.username === user.username
+				.panel
+					ul.nav.nav-pills.nav-stacked
+						li
+							a.profile-link(href='/profile/' + user.username)
+								i.fa.fa-home
+								| Overview
+						li
+							a.profile-link(href='/settings/profile')
+								i.fa.fa-user
+								| Profile
+						li.active
+							a.profile-link(href='/settings/interests')
+								i.fa.fa-check
+								| Interests
+		.col-md-8
+			.panel
+				h2 Favorite clubs
+				#error
+				ul#favorite-clubs
+					each club in data.favClubs
+						i.fa.fa-check-circle
+						span.fav-club-name= club.name
+			.panel
+				h2 Favorite players
+				ul#favorite-players
+					each club in data.favPlayers
+						i.fa.fa-check-circle
+						span.fav-club-name= club.name
+			.panel
+				h2 Favorite national team
+				ul#favorite-team
+					each club in data.favNationalTeams
+						i.fa.fa-check-circle
+						span.fav-club-name= club.name
+block scripts
+	script(src='/js/user/interests.js')
+
